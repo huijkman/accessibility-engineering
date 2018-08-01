@@ -6,7 +6,7 @@
 }
 
 .blog-header-logo {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: 'Chelsea Market', Arial, sans-serif;
   font-size: 2.25rem;
 }
 
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: 'Chelsea Market', Arial, sans-serif;
 }
 
 .display-4 {
@@ -35,6 +35,8 @@ h6 {
 .card-img-right {
   height: 100%;
   border-radius: 0 3px 3px 0;
+  background-color: #999;
+  width: 200px;
 }
 
 .flex-auto {
