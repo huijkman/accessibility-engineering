@@ -9,52 +9,117 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&amp;subset=latin-ext" rel="stylesheet" />
 
     <style>
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .masonry {
+        column-gap: 1.5em;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      @media only screen and (min-width: 1280px) {
+        .masonry {
+          column-count: 4;
+        }
+      }
+
+      @media only screen and (max-width: 1279px) and (min-width: 768px) {
+        .masonry {
+          column-count: 3;
+        }
+      }
+
+      /* Masonry on small screens */
+      @media only screen and (max-width: 767px) and (min-width: 540px) {
+        .masonry {
+          column-count: 2;
+        }
+      }
+
+      .masonry > * {
+        background-color: #fcfcfc;
+        display: inline-block;
+        margin: 0 0 1em;
+        width: 100%;
+        padding: 1em;
+      }
+    
       html, body {
         font-family: 'Libre Baskerville', 'Times New Roman', serif;
+        margin: 0;
+        padding: 0;
       }
-      main {
-        padding: 0 20px;
+      main,
+      header,
+      footer {
+        padding: 20px;
       }
-      h1 {
+      footer {
+        background-color: #fff;
+        color: #000;
+      }
+      header h1 {
+        font-size: 5vw;
+      }
+      footer h3 {
         font-size: 6vw;
+        margin: 0;
       }
-      h1 span {
+     footer h1 span,
+     footer h3 span {
         display: inline-block;
         position: relative;
       }
-      h1 span:after,
-      h2 span:after {
+      footer h1 span:after,
+      footer h3 span:after {
         content:'';
         display: block;
         border: 1px solid #ccc;
         border-top: none;
         height: 5px;
       }
-      p {
+      footer p {
         max-width: 800px;
         font-size: 16px;
         line-height: 28px;
         padding-left: 20px;
       }
-      p strong {
+      footer p strong {
         display: inline-block;
         margin-left: -20px;
       }
-      ol {
+      li a {
+        color: #000;
+      }
+      footer {
+        background: #fcfcfc;
+        color: #999;
+      }
+      footer ol {
         padding-left: 0;
         margin-left: 20px;
         list-style-position: inside;
         max-width: 800px;
         font-size: 16px;
       }
-      ol li {
+      footer li a {
+        color: #000;
+      }
+      footer ol li {
         font-weight: bold;
         line-height: 28px;
       }
-      ol li + li {
+      li + li {
         margin-top: 10px;
       }
-      ol li span {
+      footer ol li span {
         font-weight: normal;
       }
       .nowrap {
@@ -65,13 +130,13 @@
       }
 
       @media screen and (min-width: 600px){
-        h1 {
+        header h1 {
+          font-size: 3vw;
+        }
+        footer h3 {
           font-size: 5vw;
         }
-        h2 {
-          font-size: 4vw;
-        }
-        p, ol {
+        p, ol, ul {
           font-size: 18px;
         }
         .xl {
@@ -82,8 +147,64 @@
     <title>Accessibility Engineering</title>
   </head>
   <body>
+    <header>
+        <h1>Accessibility Engineering</h1>
+    </header>
     <main>
-      <h1><span>Accessibility</span> <span>Engineering</span></h1>
+      <h2>Web</h2>
+      <ul class="masonry">
+        <li><a href="https://link.medium.com/tEMzLeoRHT">How to Write Accessible JavaScript</a></li>
+        <li><a href="https://github.com/davidtheclark/focus-trap">focus-trap</a></li>
+        <li><a href="https://github.com/WICG/focus-visible">focus-visible</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g">Google's a11ycast's</a></li>
+        <li><a href="https://developers.google.com/web/tools/lighthouse/audits/button-name">Lighthouse automatische test</a></li>
+        <li><a href="https://a11yproject.com/">The awesome a11y project</a></li>
+      </ul>
+      <h2>Mobile</h2>
+      <ul class="masonry">
+        <li><a href="https://developer.paciellogroup.com/downloads/TPG_Mobile_Testing_Guide.pdf">iOS &amp; Android testing guide</a></li>
+      </ul>
+      <h3>Android</h3>
+      <ul class="masonry">
+        <li><a href="https://developer.android.com/guide/topics/ui/accessibility/">Overview</a></li>
+        <li><a href="https://material.io/design/usability/accessibility.html">For designers</a></li>
+        <li><a href="https://developer.android.com/guide/topics/ui/accessibility/apps">For developers</a></li>
+        <li><a href="https://developer.android.com/training/accessibility/testing">For testers</a></li>
+        <li><a href="https://support.google.com/accessibility/android/answer/6007100">Turn on Talkback</a></li>
+      </ul>
+      <h3>iOS</h3>
+      <ul class="masonry">
+        <li><a href="https://www.apple.com/accessibility/">Overview</a></li>
+        <li><a href="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/accessibility/">For designers</a></li>
+        <li><a href="https://developer.apple.com/accessibility/ios/">For developers</a></li>
+        <li><a href="https://www.deque.com/blog/intro-accessibility-inspector-tool-ios-native-apps/">For testers</a></li>
+        <li><a href="https://www.imore.com/how-use-voiceover-iphone-and-ipad#activate">Activate VoiceOver</a></li>
+      </ul>
+
+      <h2>Project</h2>
+
+      <div class="masonry">
+        <div>
+          <h3>Start</h3>
+          <ol>
+            <li>Design</li>
+            <li>Dev</li>
+            <li>Testen</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Tijdens</h3>
+          <ol>
+            <li>Automatische test</li>
+            <li>Test met toetsenbord</li>
+            <li>Test met screenreader. Kan je d'r chocola van maken?</li>
+            <li><a href="https://a11yproject.com/checklist">Web Accessibility Checklist</a></li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h3><span>Accessibility</span> <span>Engineering</span></h3>
       <p>
         <strong>Accessibility</strong>
         <span class="nowrap"><em>noun</em> (ɪkˈses·əˈbɪl·ɪ·t̬i)</span>
@@ -100,10 +221,9 @@
           <li><span>the way that something has been designed and built</span></li>
         </ol>
       </p>
-      <!--h2><span>Accessibility Engineer</span></h2-->
       <p><strong class="xl">Accessibility Engineer</strong>
         <span class="xl nowrap"><em>noun</em> (ɪkˈses·əˈbɪl·ɪ·t̬i en.dʒɪˈnɪr)</span></p>
       <p>a person whose job is to design or build stuff in such a way that everybody can easily reach, obtain and understand it</p>
-    </main>
+    </footer>
   </body>
 </html>
